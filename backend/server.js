@@ -17,9 +17,9 @@ app.use(express.json());
 app.use('/posts', postRoutes);
 
 // Root route
-/* app.get('/', (req, res) => {
-  res.send('Blog API is running...');
-}); */
+app.get('/health', (req, res) => {
+  res.send(`Blog Backend is running on ${PORT}`);
+});
 
 //-----------comment them if we need to use 2 vm
 //if only one vm uncomment these (Vite builds to 'dist/', NOT 'build/')
@@ -34,12 +34,12 @@ app.use('/posts', postRoutes);
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => {
-    console.log('✅ Connected to MongoDB Atlas');
+    console.log('Connected to MongoDB Atlas');
     app.listen(PORT, '0.0.0.0', () => {
       console.log(`🚀 Server running at http://localhost:${PORT}`);
     });
   })
   .catch((err) => {
-    console.error('❌ MongoDB connection error:', err.message);
+    console.error('MongoDB connection error:', err.message);
     process.exit(1);
   });

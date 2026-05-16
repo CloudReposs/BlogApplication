@@ -89,7 +89,7 @@ ssh -i vm1_key.pem azureuser@PUBLIC_IP
 
 Example:
 
-ssh -i vm1_key.pem [azureuser@20.xx.xx.xx](mailto:azureuser@20.xx.xx.xx)
+ssh -i vm1_key.pem azureuser@20.xx.xx.xx
 
 ====================================================
 STEP 4 — UPDATE UBUNTU
@@ -103,7 +103,7 @@ sudo apt upgrade -y
 STEP 5 — INSTALL NODEJS
 =======================
 
-curl -fsSL [https://deb.nodesource.com/setup_20.x](https://deb.nodesource.com/setup_20.x) | sudo -E bash -
+curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
 
 sudo apt install nodejs -y
 
@@ -127,7 +127,7 @@ git clone YOUR_GITHUB_REPO_LINK
 
 Example:
 
-git clone [https://github.com/username/blog-application.git](https://github.com/username/blog-application.git)
+git clone https://github.com/username/blog-application.git
 
 cd blog-application
 
@@ -211,7 +211,7 @@ http://PUBLIC_IP:5000
 
 Example:
 
-axios.get("[http://20.xx.xx.xx:5000/api/posts](http://20.xx.xx.xx:5000/api/posts)")
+axios.get("http://20.xx.xx.xx:5000/api/posts")
 
 ====================================================
 STEP 14 — START FRONTEND
@@ -267,7 +267,7 @@ http://PUBLIC_IP:5000
 
 Example:
 
-[http://20.xx.xx.xx:3000](http://20.xx.xx.xx:3000)
+http://20.xx.xx.xx:3000
 
 ====================================================
 IMPORTANT COMMANDS SUMMARY
@@ -287,3 +287,9 @@ npm run dev -- --host 0.0.0.0
 
 Check Ports:
 sudo ss -tulnp
+
+
+
+After rev proxy setup 
+frontend http://PUBLIC_IP
+backend http://PUBLIC_IP/api    
